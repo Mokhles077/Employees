@@ -1,32 +1,87 @@
-package com.practise.project;
+package FileInOut;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.Scanner;
 
 public class ManageEmployee {
 
 	public static void main(String[] args) {
 		
-		ArrayList<Employee> list1 = new ArrayList <Employee>();
+		ArrayList<Employee> list= new ArrayList <Employee> ();
 		
-		list1.add(new Employee(1001,"Sridhar","Hyderabad",13000));
-		list1.add(new Employee(1002,"Ravi","New Delhi",34000));
-		list1.add(new Employee(1003,"Vinod","Chennai",35000));
-		list1.add(new Employee(1004,"Wasim","Lucknow",32000));
-		list1.add(new Employee(1005,"Rabbani","Pune",23000));
+		char ch;
 		
+		Scanner input= new Scanner(System.in);
 		
-		
-		
-		Collections.sort(list1);
+		int empId;
+		String empName;
+		String empCity;
+		int salary;
 		
 		
-		for (Employee l: list1) {
-			System.out.println(l);
+			while (true) {
+				
+				System.out.println("Enter your Choice: 1. All Employee details 2. Delete Employee 3. Sort City 4. Sort Salary 5. Exit");
+				ch=input.next().charAt(0);
+				
+				
+				switch (ch) {
+				
+				case '1': 
+					
+					
+					list.addAll(list);
+					
+					
+					break;
+					
+				case '2':
+					
+					break;
+					
+				case '3':
+					
+					
+						Collections.sort(list, new SortCity());
+						
+							for(Employee cits:list) {
+								System.out.println("Sorting by City :" + cits);
+							}
+						break;
+							
+				case '4':
+					
+					Collections.sort(list, new SortSalary());
+					
+					for(Employee salr:list) {
+						System.out.println("Sorting by Salary :" + salr);
+					}
+					
+					 break;
+					 
+				case '5':
+					
+					System.exit(0);
+					
+					break;
+					
 			
-		}
-
+				
+				
+				}
+				
+			}
+			
+		
+		
+		
+		
+		
+		
 	}
 
 }
